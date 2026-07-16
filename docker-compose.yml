@@ -5,7 +5,7 @@ services:
     env_file:
       - .env.local
     environment:
-      HERMES_WEB_UI_DATA_DIR: /app/.data
+      AGENT_WORKSPACE_DATA_DIR: /app/.data
       HOSTNAME: 127.0.0.1
       PORT: 3100
     # Host networking lets the UI reach a host-local Hermes API Server while

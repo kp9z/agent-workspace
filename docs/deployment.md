@@ -13,8 +13,8 @@ Core settings:
 - `HERMES_BASE_URL`: Hermes API Server URL reachable from the host
 - `HERMES_API_KEY`: optional Hermes bearer token
 - `HERMES_RUNTIME_NAME`, `HERMES_PROFILE`, `HERMES_EXECUTION_HOST`: UI labels
-- `HERMES_WEB_UI_DATA_DIR`: data directory; defaults to `.data` locally and `/app/.data` in Docker
-- `HERMES_WEB_UI_BACKUP_DIR`: optional default backup destination directory
+- `AGENT_WORKSPACE_DATA_DIR`: data directory; defaults to `.data` locally and `/app/.data` in Docker
+- `AGENT_WORKSPACE_BACKUP_DIR`: optional default backup destination directory
 
 The Hermes runtime must return `features.runs_session_history: true` from `/v1/capabilities`. See Hermes Agent PR #52827.
 
@@ -70,7 +70,7 @@ The app emits CSP, HSTS in production, anti-framing, MIME-sniffing, referrer, pe
 
 Mount the data directory persistently. Compose uses the `hermes-web-ui-data` volume at `/app/.data`.
 
-The canonical database is `agent-workspace.sqlite`. For migration compatibility, an existing-only `kira-workspace.sqlite` is used in place when the canonical file is absent.
+The database is stored as `agent-workspace.sqlite`.
 
 ### Online backup
 

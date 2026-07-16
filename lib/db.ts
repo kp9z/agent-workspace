@@ -9,7 +9,7 @@ let db: Database.Database | undefined;
 let dbPath: string | undefined;
 
 export function getDataDir() {
-  return process.env.HERMES_WEB_UI_DATA_DIR || path.join(process.cwd(), '.data');
+  return process.env.AGENT_WORKSPACE_DATA_DIR || process.env.HERMES_WEB_UI_DATA_DIR || path.join(process.cwd(), '.data');
 }
 
 function workspaceDbPath(dataDir: string, name: string) {

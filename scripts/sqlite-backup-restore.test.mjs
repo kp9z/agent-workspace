@@ -144,8 +144,8 @@ test('backup script honors the configured default backup directory', () => {
   const sourceDb = createWorkspaceDb(path.join(dataDir, 'agent-workspace.sqlite'), ['configured-dir']);
   try {
     const result = runScript(backupScript, [], {
-      HERMES_WEB_UI_DATA_DIR: dataDir,
-      HERMES_WEB_UI_BACKUP_DIR: backupDir,
+      AGENT_WORKSPACE_DATA_DIR: dataDir,
+      AGENT_WORKSPACE_BACKUP_DIR: backupDir,
     });
     assert.equal(result.status, 0, result.stderr);
     const destination = result.stdout.trim();

@@ -5,7 +5,7 @@ export const CANONICAL_DB_NAME = 'agent-workspace.sqlite';
 export const LEGACY_DB_NAME = 'kira-workspace.sqlite';
 
 export function getWorkspaceDataDir(cwd = process.cwd()) {
-  return process.env.HERMES_WEB_UI_DATA_DIR || path.join(cwd, '.data');
+  return process.env.AGENT_WORKSPACE_DATA_DIR || process.env.HERMES_WEB_UI_DATA_DIR || path.join(cwd, '.data');
 }
 
 export function workspaceDbPath(dataDir, fileName = CANONICAL_DB_NAME) {

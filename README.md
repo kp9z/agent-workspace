@@ -98,7 +98,7 @@ Use `none` only when a trusted private network or authenticated reverse proxy is
 
 ## Data, backup, and restore
 
-Workspace state is stored in `${HERMES_WEB_UI_DATA_DIR:-.data}/agent-workspace.sqlite` using SQLite WAL mode. Existing installations containing only `kira-workspace.sqlite` continue using that file in place.
+Workspace state is stored in `${AGENT_WORKSPACE_DATA_DIR:-.data}/agent-workspace.sqlite` using SQLite WAL mode.
 
 Create a transactionally consistent online backup, even while the app is running:
 
