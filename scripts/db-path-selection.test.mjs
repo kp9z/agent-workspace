@@ -25,7 +25,9 @@ test('db path selection prefers canonical files and falls back to legacy files',
   const dataDir = mkdtempSync(path.join(os.tmpdir(), 'kira-db-path-'));
 
   try {
-    process.env.HERMES_WEB_UI_DATA_DIR = dataDir;
+    process.env.HERMES_WEB_UI_DATA_DIR = path.join(dataDir, 'legacy-env');
+    process.env.AGENT_WORKSPACE_DATA_DIR = dataDir;
+    assert.equal(db.getDataDir(), dataDir);
     assert.equal(db.selectDbPath(dataDir), path.join(dataDir, 'agent-workspace.sqlite'));
     assert.equal(db.getDbPath(), path.join(dataDir, 'agent-workspace.sqlite'));
 
@@ -38,6 +40,7 @@ test('db path selection prefers canonical files and falls back to legacy files',
     assert.equal(db.getDbPath(), path.join(dataDir, 'agent-workspace.sqlite'));
   } finally {
     cleanup();
+    delete process.env.AGENT_WORKSPACE_DATA_DIR;
     delete process.env.HERMES_WEB_UI_DATA_DIR;
     rmSync(dataDir, { recursive: true, force: true });
   }

@@ -25,7 +25,7 @@ async function main() {
     throw new Error(`No SQLite workspace database found in ${dataDir}`);
   }
 
-  const backupDir = process.env.HERMES_WEB_UI_BACKUP_DIR || path.join(cwd, 'backups');
+  const backupDir = process.env.AGENT_WORKSPACE_BACKUP_DIR || process.env.HERMES_WEB_UI_BACKUP_DIR || path.join(cwd, 'backups');
   const destination = process.argv[2]
     ? path.resolve(cwd, process.argv[2])
     : path.join(backupDir, `agent-workspace-${isoSafeTimestamp()}.sqlite`);
