@@ -25,3 +25,7 @@ updates:
       interval: weekly
       day: monday
     open-pull-requests-limit: 3
+    ignore:
+      - dependency-name: node
+        update-types:
+          - version-update:semver-major

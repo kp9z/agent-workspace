@@ -17,6 +17,8 @@ test('CI, dependency review, CodeQL, and Dependabot configuration are present', 
     assert.equal(existsSync(path.join(workflowDir, file)), true, `${file} must exist`);
   }
   assert.equal(existsSync(path.join(rootDir, '.github', 'dependabot.yml')), true);
+  const dependabot = read('.github/dependabot.yml');
+  assert.match(dependabot, /dependency-name:\s*node[\s\S]*version-update:semver-major/, 'Docker Dependabot must not propose unsupported Node major upgrades');
 
   const ci = read('.github/workflows/ci.yml');
   for (const command of [

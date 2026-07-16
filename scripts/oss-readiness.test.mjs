@@ -17,6 +17,7 @@ const requiredFiles = [
   'docs/images/workspace-overview.png',
   'docs/images/workspace-settings.png',
   'docs/images/mobile-workspace.png',
+  'docs/images/social-preview.png',
 ];
 
 test('open-source project metadata and community files stay complete', () => {
@@ -29,6 +30,9 @@ test('open-source project metadata and community files stay complete', () => {
   assert.equal(packageJson.private, true, 'npm publishing should remain explicitly disabled');
   assert.equal(packageJson.license, 'MIT');
   assert.equal(packageJson.engines.node, '>=22');
+  assert.equal(packageJson.homepage, 'https://github.com/kp9z/agent-workspace#readme');
+  assert.equal(packageJson.repository.url, 'git+https://github.com/kp9z/agent-workspace.git');
+  assert.equal(packageJson.bugs.url, 'https://github.com/kp9z/agent-workspace/issues');
   assert.equal(packageJson.scripts.test, 'node --test scripts/*.test.mjs');
 
   const lock = JSON.parse(readFileSync(path.join(rootDir, 'package-lock.json'), 'utf8'));

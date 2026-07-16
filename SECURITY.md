@@ -8,7 +8,7 @@ Agent Workspace is pre-1.0. Security fixes are applied to the latest release and
 
 Do not open a public issue for a suspected vulnerability.
 
-After the canonical repository is published, use private vulnerability reporting from its **Security** tab. Until then, or if that feature is unavailable, contact the maintainer privately through the contact method on the repository owner's GitHub profile.
+Use private vulnerability reporting from the repository's **Security** tab. If that feature is unavailable, contact the maintainer privately through the contact method on the repository owner's GitHub profile.
 
 Include:
 

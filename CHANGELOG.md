@@ -13,7 +13,7 @@ All notable changes to Agent Workspace are documented here. The project follows 
 
 ### Changed
 
-- Neutral Agent Workspace branding and runtime identifiers with legacy Kira Workspace migration aliases
+- Neutral Agent Workspace branding and runtime identifiers with legacy migration aliases
 - SQLite persistence, session summaries, and runtime continuity behavior
 
 ## [0.1.4] - 2026-07-16

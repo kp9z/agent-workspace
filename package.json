@@ -2,6 +2,15 @@
   "name": "agent-workspace",
   "version": "0.1.4",
   "private": true,
+  "description": "A self-hosted, mobile-friendly browser workspace for Hermes Agent.",
+  "homepage": "https://github.com/kp9z/agent-workspace#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kp9z/agent-workspace.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kp9z/agent-workspace/issues"
+  },
   "scripts": {
     "dev": "sh -c 'next dev --hostname 127.0.0.1 --port ${PORT:-3100}'",
     "build": "next build --webpack",
