@@ -2155,7 +2155,7 @@ export default function Home() {
         <div className="flex items-center justify-between gap-3 px-5 py-4 md:p-4">
           <div className={cx('min-w-0', !sidebarOpen && 'md:hidden')}>
             <p className="sr-only">{branding.workspaceShortName}</p>
-            <h1 className="truncate text-2xl font-semibold tracking-tight">{branding.workspaceName}</h1>
+            <h1 className="truncate text-base font-semibold tracking-tight">{branding.workspaceName}</h1>
           </div>
           <div className="flex items-center gap-1">
             <button

@@ -4,17 +4,35 @@ Agent Workspace is a self-hosted, mobile-friendly browser workspace for [Hermes 
 
 > **Project status:** pre-1.0 and intended for self-hosting. Review the security and deployment guidance before exposing it to a network.
 
-## Highlights
+## Screenshots
 
-- Persistent SQLite sessions, messages, tool events, attachments, queue state, pins, and archives
-- Stable Hermes `/v1/runs` sessions with reconnectable SSE progress
-- Project-scoped system prompts
-- Stop, approval, and steering controls
-- Image paste/upload for PNG, JPEG, GIF, and WebP
-- Google OAuth, shared-secret authentication, or explicit private-network mode
-- Same-origin request checks, bounded request bodies, validated image signatures, security headers, and bounded rate limiting
-- Online SQLite backup and guarded atomic restore
-- Configurable product, agent, and user display names
+<p align="center">
+  <img src="docs/images/workspace-overview.png" alt="Agent Workspace desktop view with projects, persistent chats, and a completed Hermes tool run" width="100%">
+</p>
+
+<table>
+  <tr>
+    <td width="68%"><img src="docs/images/workspace-settings.png" alt="Agent Workspace theme and quick-reply settings"></td>
+    <td width="32%"><img src="docs/images/mobile-workspace.png" alt="Agent Workspace mobile conversation view"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Theme and reusable quick-reply controls</sub></td>
+    <td align="center"><sub>Mobile-first chat and tool progress</sub></td>
+  </tr>
+</table>
+
+*Screenshots use synthetic data and the bundled mock Hermes runtime.*
+
+## Key features
+
+- **Persistent conversations** — SQLite-backed sessions preserve messages, tool events, attachments, queue state, pins, archives, and project membership.
+- **Project workspaces** — Group related chats and apply project-specific system prompts without rebuilding the app.
+- **Native Hermes continuity** — Stable `/v1/runs` session IDs preserve server-owned context, including tool calls and tool results, across turns and reconnects.
+- **Live execution controls** — Stream assistant and tool progress, stop active work, approve guarded actions, steer running sessions, and queue follow-ups.
+- **Multimodal input** — Paste or upload validated PNG, JPEG, GIF, and WebP images directly into a conversation.
+- **Desktop and mobile UI** — Installable PWA with responsive side panels, compact chat controls, themes, and configurable quick replies.
+- **Production-oriented security** — Google OAuth, shared-secret authentication, explicit private-network mode, same-origin enforcement, body and attachment limits, security headers, and bounded rate limiting.
+- **Recoverable self-hosting** — Docker support, health checks, online SQLite backups, guarded atomic restore, and compatibility checks for the connected Hermes runtime.
 
 ## Requirements
 

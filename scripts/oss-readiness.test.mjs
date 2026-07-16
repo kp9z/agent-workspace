@@ -14,6 +14,9 @@ const requiredFiles = [
   'SUPPORT.md',
   'CHANGELOG.md',
   'docs/deployment.md',
+  'docs/images/workspace-overview.png',
+  'docs/images/workspace-settings.png',
+  'docs/images/mobile-workspace.png',
 ];
 
 test('open-source project metadata and community files stay complete', () => {
