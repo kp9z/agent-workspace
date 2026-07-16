@@ -1,0 +1,21 @@
+node_modules
+.env.local
+.env.*.local
+.data
+backups
+coverage
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+.git
+.gitignore
+
+# Keep the standalone build artifacts because the Dockerfile packages a
+# prebuilt Next.js app. Run `npm run build` before `docker compose build`.
+.next/cache
+.next/diagnostics
+.next/server
+.next/types
+.next/trace*

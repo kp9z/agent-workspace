@@ -1,0 +1,44 @@
+{
+  "name": "agent-workspace",
+  "version": "0.1.4",
+  "private": true,
+  "scripts": {
+    "dev": "sh -c 'next dev --hostname 127.0.0.1 --port ${PORT:-3100}'",
+    "build": "next build --webpack",
+    "start": "HOSTNAME=127.0.0.1 PORT=3100 node .next/standalone/server.js",
+    "test": "node --test scripts/*.test.mjs",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "smoke": "node scripts/smoke.mjs",
+    "backup": "node scripts/backup.mjs",
+    "restore": "node scripts/restore.mjs",
+    "mock-hermes": "node scripts/mock-hermes.mjs",
+    "smoke:mock-hermes": "node scripts/mock-hermes-smoke.mjs"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "4.3.1",
+    "better-sqlite3": "^12.11.1",
+    "next": "16.2.10",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "react-markdown": "10.1.0",
+    "remark-gfm": "4.0.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "25.9.3",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.2.10",
+    "tailwindcss": "4.3.1",
+    "typescript": "6.0.3"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "overrides": {
+    "postcss": "8.5.15"
+  }
+}

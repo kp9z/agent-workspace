@@ -1,0 +1,28 @@
+services:
+  hermes-web-ui:
+    build: .
+    restart: unless-stopped
+    env_file:
+      - .env.local
+    environment:
+      HERMES_WEB_UI_DATA_DIR: /app/.data
+      HOSTNAME: 127.0.0.1
+      PORT: 3100
+    # Host networking lets the UI reach a host-local Hermes API Server while
+    # keeping the web UI bound to localhost through HOSTNAME=127.0.0.1.
+    network_mode: host
+    volumes:
+      - hermes-web-ui-data:/app/.data
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3100/api/runtime/health').then((response) => { if (!response.ok) process.exit(1); }).catch(() => process.exit(1));",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+volumes:
+  hermes-web-ui-data:
