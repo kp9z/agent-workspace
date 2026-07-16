@@ -30,6 +30,12 @@ test('CI, dependency review, CodeQL, and Dependabot configuration are present', 
   ]) {
     assert.match(ci, new RegExp(command.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   }
+
+  const dependencyReview = read('.github/workflows/dependency-review.yml');
+  assert.match(dependencyReview, /if: \$\{\{ github\.event\.repository\.private == false \}\}/);
+
+  const codeql = read('.github/workflows/codeql.yml');
+  assert.match(codeql, /upload: \$\{\{ github\.event\.repository\.private && 'never' \|\| 'always' \}\}/);
 });
 
 test('third-party workflow actions are pinned to immutable commit SHAs with least-privilege defaults', () => {
