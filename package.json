@@ -25,7 +25,7 @@
     "smoke:mock-hermes": "node scripts/mock-hermes-smoke.mjs"
   },
   "dependencies": {
-    "@tailwindcss/postcss": "4.3.1",
+    "@tailwindcss/postcss": "4.3.2",
     "better-sqlite3": "^12.11.1",
     "next": "16.2.10",
     "react": "19.2.7",
@@ -40,7 +40,7 @@
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.4",
     "eslint-config-next": "16.2.10",
-    "tailwindcss": "4.3.1",
+    "tailwindcss": "4.3.2",
     "typescript": "6.0.3"
   },
   "license": "MIT",

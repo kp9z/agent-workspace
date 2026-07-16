@@ -19,6 +19,9 @@ test('CI, dependency review, CodeQL, and Dependabot configuration are present', 
   assert.equal(existsSync(path.join(rootDir, '.github', 'dependabot.yml')), true);
   const dependabot = read('.github/dependabot.yml');
   assert.match(dependabot, /dependency-name:\s*node[\s\S]*version-update:semver-major/, 'Docker Dependabot must not propose unsupported Node major upgrades');
+  for (const dependency of ['@types/node', 'eslint', 'typescript']) {
+    assert.match(dependabot, new RegExp(`dependency-name: ['"]?${dependency.replace('/', '\\/')}['"]?[\\s\\S]*?version-update:semver-major`), `${dependency} major updates must require deliberate review`);
+  }
 
   const ci = read('.github/workflows/ci.yml');
   for (const command of [
