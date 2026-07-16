@@ -8,6 +8,10 @@ permissions:
 
 jobs:
   review:
+    # GitHub exposes the dependency-review API for public repositories or
+    # private repositories with GitHub Advanced Security. Pull-request CI
+    # still runs npm audit while this repository is private.
+    if: ${{ github.event.repository.private == false }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
