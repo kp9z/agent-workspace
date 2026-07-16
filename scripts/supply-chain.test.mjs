@@ -36,6 +36,9 @@ test('third-party workflow actions are pinned to immutable commit SHAs with leas
   for (const file of workflowFiles) {
     const source = read(`.github/workflows/${file}`);
     assert.doesNotMatch(source, /permissions:\s*write-all/);
+    if (file === 'codeql.yml') {
+      assert.match(source, /permissions:\n  actions: read\n  contents: read\n  security-events: write/);
+    }
     for (const match of source.matchAll(/^\s*uses:\s*([^\s#]+)(?:\s*#.*)?$/gm)) {
       const action = match[1];
       assert.match(action, /^[^@\s]+@[0-9a-f]{40}$/, `${file} has an unpinned action: ${action}`);
